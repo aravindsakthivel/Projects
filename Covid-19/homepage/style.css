@@ -1,0 +1,23 @@
+#color_bar{
+    height: 550px;
+    border-radius: 50px;
+    position: relative;
+    top: -200px;
+}
+
+#news_inner{
+    position: fixed;
+    top: 10px;
+    left: 0;
+
+}
+
+.card_caro{
+    min-height: 150px;
+    max-height: 150px;
+}
+/* 
+#latest_news{
+    position: fixed;
+    z-index: 1;
+} */
