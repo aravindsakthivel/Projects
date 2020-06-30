@@ -1,23 +1,143 @@
 #color_bar{
     height: 550px;
     border-radius: 50px;
-    position: relative;
-    top: -200px;
-}
-
-#news_inner{
     position: fixed;
-    top: 10px;
-    left: 0;
-
+    top: -150px;
+    z-index: 0;
 }
+
+
+#nav_bar{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+
+#latest_news{
+    position: relative;
+    top: 80px;
+    left: 0;
+    z-index: 1;
+}
+
 
 .card_caro{
-    min-height: 150px;
-    max-height: 150px;
+    min-height: 200px;
+    max-height: 200px;
 }
+
+/* #country_name{
+    position: relative;
+    top: -300px;
+} */
+
+/* div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+
+div.scrollmenu a:hover {
+    background-color: #777;
+} */
+
+#global_chart{
+    position: relative;
+    top: 80px;
+    padding: 0 33px 70px 33px;
+}
+
+
+#country_data{
+    position: relative;
+    top: 80px;
+}
+
+#country_holder{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding: 0 33px 0 33px;
+}
+
+
+#indiv_country_data{
+    position: absolute;
+    top: 75px;
+    left: 0;
+    padding: 0 33px 0 33px;
+}
+
+#individual_country_chart{
+    position: absolute;
+    top: 205px;
+    left: 0;
+    padding: 0 33px 0 33px;
+}
+
+
+#know_more{
+    position: absolute;
+    top: 1200px;
+    left: 0;
+    padding: 0 33px 0 33px;
+}
+
+#country_card_bd{
+    height: 60px;
+}
+
+
+.ic_brd{
+    height: 15px;
+}
+
+.sp_txt{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+
+.sp_txt_2{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
 /* 
 #latest_news{
     position: fixed;
     z-index: 1;
 } */
+
+/* <div class="col-lg-12 col-md-12 col-sm-12" id="country_name">
+                    <div class="scrollmenu">
+                        <a href="#home">Home</a>
+                        <a href="#news">News</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#about">About</a>
+                        <a href="#support">Support</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#tools">Tools</a>  
+                        <a href="#base">Base</a>
+                        <a href="#custom">Custom</a>
+                        <a href="#more">More</a>
+                        <a href="#logo">Logo</a>
+                        <a href="#friends">Friends</a>
+                        <a href="#partners">Partners</a>
+                        <a href="#people">People</a>
+                        <a href="#work">Work</a>
+                    </div>
+                </div> */
