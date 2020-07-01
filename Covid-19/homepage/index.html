@@ -14,32 +14,7 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 p-0" id="nav_bar">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow">
-                        <a class="navbar-brand" href="index.html">Covid-19 Tracker</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Categories
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="category_fact">
-                                        <!-- <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a> -->
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 bg-info" id="color_bar">
+                <div class="col-lg-12 col-md-12 col-sm-12 bg-primary" id="color_bar">
                 </div>
             </div>
             <div class="row">
@@ -49,7 +24,7 @@
                             <div class="carousel-item active">
                                 <div class="card card_caro shadow p-3 mb-5 bg-white rounded"">
                                     <div class="card-body">
-                                        <small>Latest news</small>
+                                        <small>Headlines</small>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +43,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12" id="global_chart">
                     <div class="card">
-                        <canvas id="globalDataChart" width="400" height="400"></canvas>
+                        <canvas id="globalDataChart" width="400" height="500"></canvas>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" id="country_data">
@@ -96,20 +71,76 @@
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12" id="individual_country_chart">
-                        <!-- <div class="card" id="ind_chart_card">
-                        </div> -->
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12" id="know_more"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Safety measures</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>Avoid close contact with people who are sick.</li>
+                                        <li>Stay home when you are sick.</li>
+                                        <li>Cover your cough or sneeze with a tissue, then throw the tissue in the trash.</li>
+                                        <li>
+                                            Clean and disinfect frequently touched objects and surfaces using a regular 
+                                            household cleaning spray or wipe.
+                                        </li>
+                                        <li>
+                                            Follow CDC’s recommendations for using a facemask.
+                                            <ul>
+                                                <li>
+                                                    CDC does not recommend that people who are well wear a facemask to 
+                                                    protect themselves from respiratory diseases, including COVID-19.
+                                                </li>
+                                                <li>
+                                                    Facemasks should be used by people who show symptoms of COVID-19 
+                                                    to help prevent the spread of the disease to others. The use of 
+                                                    facemasks is also crucial for 
+                                                    health workers and people who are taking care of someone in 
+                                                    close settings (at home or in a health care facility).
+                                                </li>
+                                                <li>
+                                                    Wash your hands often with soap and water for at least 20 seconds, 
+                                                    especially after going to the bathroom; before eating; and after 
+                                                    blowing your nose, coughing, or sneezing.
+                                                </li>
+                                                <li>
+                                                    If soap and water are not readily available, use an alcohol-based 
+                                                    hand sanitizer with at least 60% alcohol. Always wash hands with 
+                                                    soap and water if hands are visibly dirty. For information about 
+                                                    handwashing, see CDC’s Handwashing website
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12" id="know_more">
-                    <!-- <div class="card" id="kn_more_card">
-                        <button class="btn btn-block bg-success">Know more </button>
-                    </div> -->
+                <div class="col-sm-12 d-lg-none d-md-none " id="btm_bar">
+                    <nav class="navbar fixed-bottom navbar-light bg-info border-info ">
+                        <i class="fa fa-search ml-3" id="search_data" aria-hidden="true" style="font-size:24px"></i>
+                        <div id="center_prot" class="d-flex justify-content-center bg-light">
+                            <i class='fas fa-shield-alt' type='button'data-toggle="modal" data-target="#exampleModalCenter"  style='font-size:24px; color:red' ></i>
+                        </div>
+                        <i class="fa fa-newspaper-o mr-3" id="newspaper" aria-hidden="true" style="font-size:24px"></i>
+                    </nav>
                 </div>
             </div>
         </div>
-        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
         <script type="text/javascript" src="script.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
