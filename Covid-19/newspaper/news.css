@@ -1,0 +1,15 @@
+.card{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    margin-bottom: 150px;
+    height: 500px;
+    z-index: 1;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: 50px;
+}
