@@ -42,6 +42,7 @@ const createContinentChart = async() => {
         var randBr = []
         let id = 'globalDataChart'
         let label = 'Total cases by continent'
+        let type = 'bar'
         let globalDataApi = "https://corona.lmao.ninja/v2/continents?yesterday=true&sort"
         let chartDatas = await getApiData(globalDataApi)
         await chartDatas.forEach(element => {
@@ -53,7 +54,7 @@ const createContinentChart = async() => {
             var brColor = "rgb(" + y + "," + x + "," + z + ")"
             randBr.push(brColor)
         })
-        chartRenderDom(continentName, caseCount, randBr,id, label)
+        chartRenderDom(continentName, caseCount, randBr,id, label,type)
     }
     catch (error){
         console.log(error)
@@ -61,12 +62,12 @@ const createContinentChart = async() => {
 }
 
 
-const chartRenderDom = (xData, yData, brClr, idData, labelData) => {
+const chartRenderDom = (xData, yData, brClr, idData, labelData, typeData) => {
     var ctx = document.getElementById(idData).getContext('2d');
     var myChart = new Chart(ctx, {
         responsive: true,
         maintainAspectRatio: false,
-        type: 'line',
+        type: typeData,
         data: {
             labels: xData,
             datasets: [{
@@ -143,7 +144,6 @@ const createPatientData = async () =>{
 
 
 const patientDataRenderDom = (data) =>{
-    // console.log(data)
     let ptCnt = document.getElementById('pt_cnt').innerText =Math.ceil(Number(data.TotalConfirmed)/1000)
     let dtCnt = document.getElementById('dt_cnt').innerText =Math.ceil(Number(data.TotalDeaths)/1000)
     let rcCnt = document.getElementById('rc_cnt').innerText =Math.ceil(Number(data.TotalRecovered)/1000)
@@ -159,10 +159,8 @@ const countryPatients = () =>{
     let chartCard = document.getElementById('individual_country_chart')
     chartCard.innerHTML = ""
     chartCard.innerHTML += `<div class="card" id="ind_chart_card">
-    <canvas id="indivDataChart" width="400" height="261"></canvas>
+    <canvas id="indivDataChart" width="400" height="300"></canvas>
     </div>`
-    // <canvas id="indivDataChart" width="400" height="400"></canvas>
-    // var canvas = document.createElement(canvas)
     individualCountryChart(country, slug)
 }
 
@@ -172,34 +170,57 @@ const individualCountryChart = async (country, slug) =>{
         let dates = []
         let caseCount = []
         let randBr = []
+        let type = 'line'
         let id = 'indivDataChart'
-        let label = 'Day to day increase cases in ' + country + " (in thousands)"
+        let label = 'Increase in cases every week' + country + " (in thousands)"
         let indivApi = 'https://api.covid19api.com/dayone/country/'+slug+'/status/confirmed'
         const options = {
             headers:{'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'}
         }
         let countryData = await getApiData(indivApi, options)
+        // console.log(slug)
+        let count = 0
         await countryData.forEach(element => {
-            dates.push(element.Date.slice(5,10))
-            caseCount.push(Math.ceil(Number(element.Cases)/1000))
-            var x = Math.floor(Math.random() * 256);
-            var y = Math.floor(Math.random() * 256);
-            var z = Math.floor(Math.random() * 256);
-            var brColor = "rgb(" + y + "," + x + "," + z + ")"
-            randBr.push(brColor)
+            count++
+            if (count % 7 === 0 && slug !== 'united-states'){
+                // console.log(count)
+                dates.push(element.Date.slice(5,10))
+                caseCount.push(Math.ceil(Number(element.Cases)/1000))
+                var x = Math.floor(Math.random() * 256);
+                var y = Math.floor(Math.random() * 256);
+                var z = Math.floor(Math.random() * 256);
+                var brColor = "rgb(" + y + "," + x + "," + z + ")"
+                randBr.push(brColor)
+            }
+            else if(slug === 'united-states' && count % 10000 === 0){
+                // console.log(count)
+                dates.push(element.Date.slice(5,10))
+                caseCount.push(Math.ceil(Number(element.Cases)/1000))
+                var x = Math.floor(Math.random() * 256);
+                var y = Math.floor(Math.random() * 256);
+                var z = Math.floor(Math.random() * 256);
+                var brColor = "rgb(" + y + "," + x + "," + z + ")"
+                randBr.push(brColor)
+            }
         })
-        // console.log(dates, caseCount, randBr)
-        // indivChartRenderDom(countryData)
-        await chartRenderDom(dates,caseCount,randBr,id, label)
+        chartRenderDom(dates,caseCount,randBr,id, label, type)
         let knCard = document.getElementById('know_more')
+        knCard.innerHTML = ""
         knCard.innerHTML += `<div class="card" id="kn_more_card">
-            <button class="btn btn-block bg-success">Know more </button>
+            <button class="btn btn-block bg-success" id='know_about'>Know more about ${country}</button>
         </div>`
     }
     catch (error){
         console.log(error)
     }
 
+}
+
+
+const getNews = () => {
+    // let newsApi = "http://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=606cc152433b4263985258987aa85495"
+    // return fetch(newsApi).then(response => response.json()).then(resp => console.log(resp))
+    location.href = '../newspaper/news.html'
 }
 
 
@@ -211,6 +232,9 @@ window.addEventListener('load',async function(){
         await createPatientData()
         var cntSelect = document.getElementById("country_holder_selector")
         cntSelect.addEventListener('change', countryPatients)
+        var newsFeed = document.getElementById('newspaper')
+        newsFeed.addEventListener('click', getNews)
+        // getNews()
     }
     catch (error){
         console.log(error)
