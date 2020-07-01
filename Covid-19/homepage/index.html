@@ -130,9 +130,53 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 d-lg-none d-md-none " id="btm_bar">
+                <div class="col-12">
+                    <div class="modal fade" id="thanksBlock" tabindex="-1" role="dialog" aria-labelledby="thanksBlock" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header bg-success">
+                                    <h5 class="modal-title" id="thanksBlockTitle">Search feautre on the way</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>Thanks to </h3>
+                                    <ul>
+                                        <li>Newsapi.org</li>
+                                        <li>Covid19api</li>
+                                        <li>corona.lmao.ninja</li>
+                                        <li>
+                                            smartable.ai
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="modal fade" id="knowMoreBlock" tabindex="-1" role="dialog" aria-labelledby="knowMoreBlock" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                                    </div>
+                                    <p>Thanks for using the product</p>
+                                    <h3>Feautre under progress</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 d-lg-none d-md-none" id="btm_bar">
                     <nav class="navbar fixed-bottom navbar-light bg-info border-info ">
-                        <i class="fa fa-search ml-3" id="search_data" aria-hidden="true" style="font-size:24px"></i>
+                        <i class="fa fa-search ml-3" id="search_data" type='button' data-toggle="modal" data-target="#thanksBlock"  aria-hidden="true" style="font-size:24px"></i>
                         <div id="center_prot" class="d-flex justify-content-center bg-light">
                             <i class='fas fa-shield-alt' type='button'data-toggle="modal" data-target="#exampleModalCenter"  style='font-size:24px; color:red' ></i>
                         </div>

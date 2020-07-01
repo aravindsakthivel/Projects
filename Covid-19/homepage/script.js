@@ -207,7 +207,7 @@ const individualCountryChart = async (country, slug) =>{
         let knCard = document.getElementById('know_more')
         knCard.innerHTML = ""
         knCard.innerHTML += `<div class="card" id="kn_more_card">
-            <button class="btn btn-block bg-success" id='know_about'>Know more about ${country}</button>
+            <button class="btn btn-block bg-success" id='know_about' data-toggle="modal" data-target="#knowMoreBlock">Know more about ${country}</button>
         </div>`
     }
     catch (error){
@@ -218,8 +218,6 @@ const individualCountryChart = async (country, slug) =>{
 
 
 const getNews = () => {
-    // let newsApi = "http://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=606cc152433b4263985258987aa85495"
-    // return fetch(newsApi).then(response => response.json()).then(resp => console.log(resp))
     location.href = '../newspaper/news.html'
 }
 
@@ -234,7 +232,6 @@ window.addEventListener('load',async function(){
         cntSelect.addEventListener('change', countryPatients)
         var newsFeed = document.getElementById('newspaper')
         newsFeed.addEventListener('click', getNews)
-        // getNews()
     }
     catch (error){
         console.log(error)
